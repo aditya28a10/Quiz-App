@@ -11,22 +11,37 @@
 </head>
 <body>
   <div class="quiz-container">
-    <div class="progress-bar">
-      <div class="progress-fill"></div>
-    </div>
     
-    <div id="quiz-content">
-      <div id="question-counter"><p></p></div>
-      <h2 id="question-text"></h2>
-      <div id="options-grid"></div>
-      <button id="next-btn" class="btn-primary" style="display: none;">Next Question</button>
+    <div id="landing-screen">
+      <h2 style="font-family: var(--font-heading); margin-bottom: 30px; text-align: center; font-size: 28px;">Select a Quiz Topic</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <button class="btn-primary" onclick="startQuiz('java')">Java</button>
+        <button class="btn-primary" onclick="startQuiz('javascript')">JavaScript</button>
+        <button class="btn-primary" onclick="startQuiz('gk')">General Knowledge</button>
+      </div>
+    </div>
+
+    <div id="active-quiz-screen" style="display: none;">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      
+      <div id="quiz-content">
+        <div id="question-counter"><p></p></div>
+        <h2 id="question-text"></h2>
+        <div id="options-grid"></div>
+        <button id="next-btn" class="btn-primary" style="display: none;">Next Question</button>
+      </div>
     </div>
 
     <div id="results-screen" style="display: none;">
       <h2 id="score-percentage"></h2>
       <p id="score-display"></p>
       <p id="score-message"></p>
-      <button id="play-again-btn" class="btn-outline">Play Again</button>
+      <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px;">
+        <button id="play-again-btn" class="btn-primary">Play Again</button>
+        <button id="home-btn" class="btn-outline">Back to Menu</button>
+      </div>
     </div>
   </div>
 
