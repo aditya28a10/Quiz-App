@@ -72,15 +72,6 @@ function renderQuestion() {
   q.options.forEach((optText, index) => {
     const btn = document.createElement("button");
     btn.className = "option-btn fade-up";
-    btn.style.background = "var(--bg-secondary)";
-    btn.style.border = "1px solid var(--border)";
-    btn.style.borderRadius = "var(--radius-btn)";
-    btn.style.color = "var(--text-primary)";
-    btn.style.padding = "14px 20px";
-    btn.style.textAlign = "left";
-    btn.style.width = "100%";
-    btn.style.cursor = "pointer";
-    btn.style.transition = "all 0.2s";
     
     // Staggered animation
     btn.style.animationDelay = (index * 0.07) + "s";
@@ -103,17 +94,14 @@ function handleAnswer(index) {
   const clickedBtn = optionsGrid.children[index];
   
   if (index === q.correct) {
-    clickedBtn.style.borderColor = "var(--success)";
-    clickedBtn.style.background = "rgba(16, 185, 129, 0.12)";
+    clickedBtn.classList.add("correct");
     STATE.score++;
   } else {
-    clickedBtn.style.borderColor = "var(--error)";
-    clickedBtn.style.background = "rgba(239, 68, 68, 0.12)";
+    clickedBtn.classList.add("incorrect");
     
     // Highlight correct option
     const correctBtn = optionsGrid.children[q.correct];
-    correctBtn.style.borderColor = "var(--success)";
-    correctBtn.style.background = "rgba(16, 185, 129, 0.12)";
+    correctBtn.classList.add("correct");
   }
   
   document.getElementById("next-btn").style.display = "block";
